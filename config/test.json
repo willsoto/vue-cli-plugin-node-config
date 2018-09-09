@@ -1,0 +1,10 @@
+{
+  "Customer": {
+    "dbConfig": {
+      "host": "test-db-server"
+    },
+    "credit": {
+      "initialDays": 30
+    }
+  }
+}

@@ -53,10 +53,20 @@ test("keeps the original environment variables passed to the plugin", () => {
   expect(plugin.definitions).toEqual({
     CONFIG: {
       Customer: {
-        dbConfig: { host: "localhost", port: 5984, dbName: "customers" },
-        credit: { initialLimit: 100, initialDays: 1 }
+        dbConfig: {
+          host: "test-db-server",
+          port: 5984,
+          dbName: "customers"
+        },
+        credit: {
+          initialLimit: 100,
+          initialDays: 30
+        }
       }
     },
-    "process.env": { BASE_URL: '"/"', NODE_ENV: '"development"' }
+    "process.env": {
+      BASE_URL: '"/"',
+      NODE_ENV: '"test"'
+    }
   });
 });

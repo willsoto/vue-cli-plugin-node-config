@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "NODE_ENV=test jest --coverage"
   },
   "keywords": [],
   "author": "Will Soto <will.soto9+github@gmail.com> (https://github.com/willsoto)",
