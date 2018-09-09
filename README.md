@@ -1,5 +1,7 @@
 # vue-cli-plugin-node-config
 
+[![pipeline status](https://gitlab.com/willsoto/vue-cli-plugin-node-config/badges/master/pipeline.svg)](https://gitlab.com/willsoto/vue-cli-plugin-node-config/commits/master)
+
 Integrates [node-config](https://github.com/lorenwest/node-config) with [vue-cli](https://cli.vuejs.org/).
 
 Exposes configuration defined according to node-config in client code via Webpack's `DefinePlugin`
