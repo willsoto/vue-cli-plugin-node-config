@@ -1,3 +1,4 @@
+const config = require("config");
 const generateWithPlugin = require("@vue/cli-test-utils/generateWithPlugin");
 const Service = require("@vue/cli-service/lib/Service");
 
@@ -45,28 +46,16 @@ test("keeps the original environment variables passed to the plugin", () => {
   });
 
   service.init();
-  const config = service.resolveWebpackConfig();
-  const plugin = config.plugins.find(plugin => {
+  const webpackConfig = service.resolveWebpackConfig();
+  const plugin = webpackConfig.plugins.find(plugin => {
     return plugin.constructor.name === "DefinePlugin";
   });
 
   expect(plugin.definitions).toEqual({
-    CONFIG: {
-      Customer: {
-        dbConfig: {
-          host: "test-db-server",
-          port: 5984,
-          dbName: "customers"
-        },
-        credit: {
-          initialLimit: 100,
-          initialDays: 30
-        }
-      }
-    },
+    CONFIG: config.util.toObject(config),
     "process.env": {
       BASE_URL: '"/"',
-      NODE_ENV: '"test"'
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }
   });
 });
