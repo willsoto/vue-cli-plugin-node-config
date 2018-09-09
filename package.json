@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest --coverage"
+    "test": "NODE_ENV=test jest --coverage",
+    "release": "standard-version --sign --message 'chore(release): %s [skip ci]'",
+    "postrelease": "git push --follow-tags origin master && npm publish"
   },
   "keywords": [],
   "author": "Will Soto <will.soto9+github@gmail.com> (https://github.com/willsoto)",
@@ -19,6 +21,7 @@
     "config": "^2.0.1",
     "jest": "^23.5.0",
     "prettier": "^1.14.2",
+    "standard-version": "^4.4.0",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.17.2"
   }
