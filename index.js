@@ -12,7 +12,7 @@ module.exports = (api, projectOptions = {}) => {
       return [
         {
           ...originalVars,
-          [key]: config.util.toObject(config)
+          [key]: JSON.stringify(config)
         }
       ];
     });

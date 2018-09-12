@@ -52,7 +52,7 @@ test("keeps the original environment variables passed to the plugin", () => {
   });
 
   expect(plugin.definitions).toEqual({
-    CONFIG: config.util.toObject(config),
+    CONFIG: JSON.stringify(config),
     "process.env": {
       BASE_URL: '"/"',
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
